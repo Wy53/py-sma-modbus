@@ -1,5 +1,5 @@
 
-from pymodbus.client.sync import ModbusTcpClient
+from pymodbus.client import ModbusTcpClient
 from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 import time
@@ -79,8 +79,7 @@ class Modbus:
 
             response = self.client.read_holding_registers(
                 start_id,
-                length,
-                unit=self.unit
+                length
             )
 
             if response:
