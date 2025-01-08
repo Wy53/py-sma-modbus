@@ -78,8 +78,9 @@ class Modbus:
             first_register = group[0]
 
             response = self.client.read_holding_registers(
-                start_id,
-                length
+                address=start_id,
+                count=length,
+                slave=self.unit
             )
 
             if response:
